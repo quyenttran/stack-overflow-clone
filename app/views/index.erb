@@ -5,9 +5,9 @@
     <h2> DBC Overflow! </h2>
   <% end %>
 
-  <ul class=container container-table>
-    <% @users.each do |user| %>
-      <li><a href="/users/<%=user.id%>/profile"><%= user.username.capitalize %></a> </li>
+  <ul class="container container-table">
+    <% @questions.each do |question| %>
+      <li><a href="/questions/<%=question.id%>"><%= question.title.capitalize %></a> </li>
     <% end %>
   </ul>
 </div>

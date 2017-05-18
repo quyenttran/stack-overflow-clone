@@ -1,0 +1,7 @@
+<form action="/answers" method="post">
+  <label for="answer[answer]"></label>
+  <input name="answer[answer]" placeholder="answer"></input>
+  <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
+  <input type="hidden" name="answer[user_id]" value="<%=session[:id]%>">
+  <input type="submit"></input>
+</form>

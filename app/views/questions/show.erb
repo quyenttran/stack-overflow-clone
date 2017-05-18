@@ -10,20 +10,23 @@
 </div>
 
 <div class="question-body">
-<p class="question-text"><%= @question.question %></p>
-<p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-<a href="/questions/<%= @question.id %>/edit">edit</a>
-<a href="/questions/<%= @question.id %>">delete</a>
+  <p class="question-text"><%= @question.question %></p>
+  <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
+  <a href="/questions/<%= @question.id %>/edit">edit</a>
+  <a href="/questions/<%= @question.id %>">delete</a>
 </div>
 
 
 <div class="question-author">
-<p class="question-author-name"></p>
+  <p class="question-author-name">
+  </p>
 </div>
 
 <div class="question-info">
-<p class="info-label">
-asked <%= Question.time_format(@question.created_at) %></p>
-<p class="info-label">
-viewed <%= @question.view_count %> times</p>
+  <p class="info-label">
+  asked <%= Question.time_format(@question.created_at) %></p>
+  <p class="info-label">
+  viewed <%= @question.view_count %> times</p>
 </div>
+
+<%= erb :'_answers' %>
