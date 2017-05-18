@@ -4,7 +4,7 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :'users/profile', locals => {user: @user}
+  erb :'users/profile', :locals => {user: @user}
 end
 
 post '/users' do
