@@ -7,5 +7,5 @@
   <textarea id="question-question" name="question[question]"><%= @question.question %></textarea>
   <br>
   <input class="post-question-button" type="submit" value="Save Edits" />
-  <a class="cancel" href='/questions/:id'>cancel</a>
+  <a class="cancel" href="/questions/<%= @question.id %>">cancel</a>
 </form>
