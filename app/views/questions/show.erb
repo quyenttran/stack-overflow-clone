@@ -13,7 +13,10 @@
   <p class="question-text"><%= @question.question %></p>
   <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
   <a href="/questions/<%= @question.id %>/edit">edit</a>
-  <a href="/questions/<%= @question.id %>">delete</a>
+  <form method="post" action="/questions/<%= @question.id%>">
+  <input name="_method" type="hidden" value="delete">
+  <input type="submit" value="delete">
+  </form>
 </div>
 
 <%= show_comments_for(@question) %>
