@@ -18,7 +18,7 @@ end
 post '/answers' do
   puts "\n\n"
   puts params
-  @answer = Answer.create!(params[answer])
+  @answer = Answer.create!(params[:answer])
 
   redirect "/questions/#{@answer.question_id}"
 end
