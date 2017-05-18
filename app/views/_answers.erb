@@ -1,0 +1,13 @@
+<% @answers.each do |answer| %>
+
+  <span class="answer-container">
+    <span class="answer-text">
+      <%= answer.answer %>
+    </span>
+
+    <span class="answer-author">
+      user:<%= answer.user_id %>
+    </span>
+  </span>
+
+<% end %>
