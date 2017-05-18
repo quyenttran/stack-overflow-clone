@@ -52,7 +52,7 @@ end
 get '/users/:id/profile' do
 	@user = User.find(params[:id])
   if session[:id] != params[:id].to_i
-    erb :'users/profile'
+    erb :'users/login'
   else
     erb :'users/profile'
   end
