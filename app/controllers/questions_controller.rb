@@ -14,9 +14,19 @@ get '/questions/:id/edit' do
 end
 
 post '/questions' do
+  #using current_user helper method but hardcoded
+  user = User.find_by(id: 5)
   question = Question.new(params[:question])
-  "#{question}"
   # if current_user.questions << question
-  # else
-  # end
+  if user.questions << question
+     redirect "/users/#{user.id}/profile"
+  else
+     "Error"
+  end
+end
+
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.update(params[:question])
+  redirect "/questions/#{@question.id}"
 end

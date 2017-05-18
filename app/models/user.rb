@@ -1,7 +1,9 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
- validates :username, :email, :hashed_password, presence: true
-  validates :email, uniqueness: true 
+  has_many :questions
+
+  validates :username, :email, :hashed_password, presence: true
+  validates :email, uniqueness: true
 
   validate :password_is_not_blank
 
