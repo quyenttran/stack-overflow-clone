@@ -1,14 +1,19 @@
-get '/' do
+before do
   if logged_in?
     @user = User.find(session[:id])
   end
+end
 
+get '/' do
   @users = User.all
   @questions = Question.all
   erb :'index'
 end
 
 get "/users/new" do
+  if logged_in?
+    redirect "/users/#{@user.id}/profile"
+  end
   @user = User.new
   erb :'users/new'
 end
