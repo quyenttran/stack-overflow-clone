@@ -9,6 +9,4 @@ class Question < ActiveRecord::Base
     "#{datetime.strftime('%h')} #{datetime.strftime('%d')} '#{datetime.strftime('%y')} at #{datetime.strftime('%R')}"
   end
 
-
-
 end
