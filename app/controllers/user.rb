@@ -1,8 +1,10 @@
 get '/' do
   if logged_in?
-  @user = User.find(session[:id])
-  end 
+    @user = User.find(session[:id])
+  end
+
   @users = User.all
+  @questions = Question.all
   erb :'index'
 end
 
@@ -50,4 +52,3 @@ get '/users/:id/profile' do
     erb :'users/profile'
   end
 end
-
