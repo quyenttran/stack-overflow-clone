@@ -9,6 +9,9 @@
       user:<%= answer.user_id %>
     </span>
   </span>
+  <%= show_comments_for(answer) %>
 
 <% end %>
+
+
 <a href="/questions/<%=@question.id%>/answers/new" class="add-answer-link">Add an answer</a>
