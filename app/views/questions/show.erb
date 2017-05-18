@@ -2,9 +2,18 @@
   <h1 class="question"><%= @question.title %></h1>
 </div>
 
+<div class="question-votes">
+<form method="post" action="/votes/ ######insert association id here#######" class="inline">
+<button type="submit" name="submit-up" value = "submit-up-value" class="fa vote-button upvote-button"></button>
+<button type="submit" name="submit-down" value = "submit-down-value" class="fa vote-button downvote-button"></button>
+</form>
+</div>
+
 <div class="question-body">
 <p class="question-text"><%= @question.question %></p>
 <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
+<a href="/questions/<%= @question.id %>/edit">edit</a>
+<a href="/questions/<%= @question.id %>">delete</a>
 </div>
 
 
@@ -14,7 +23,7 @@
 
 <div class="question-info">
 <p class="info-label">
-asked <%= @question.created_at %></p>
+asked <%= Question.time_format(@question.created_at) %></p>
 <p class="info-label">
-viewed <%= @question.view_count %></p>
+viewed <%= @question.view_count %> times</p>
 </div>
