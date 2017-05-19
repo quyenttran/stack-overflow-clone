@@ -1,13 +1,14 @@
 
-<div>
-  <% if !logged_in? %>
-    <h2> DBC Overflow! </h2>
-  <% end %>
-
   <ul class="container container-table">
     <span class="glyphicon glyphicon-question-sign">Questions:</span>
     <% @questions.each do |question| %>
-      <li><a class="list-group-item"href="/questions/<%=question.id%>"><%= question.title.capitalize %></a> </li>
+      <li style="list-style: none;">
+        <a class="list-group-item"href="/questions/<%=question.id%>"><%= question.title.capitalize %>
+        <span class="badge">
+          <span class="glyphicon glyphicon-eye-open">&nbsp;</span><%= question.view_count %></span>
+          <span class="badge">
+          <span class="glyphicon glyphicon-arrow-up">&nbsp;</span><%= question.votes.count %></span>
+          </a>
+      </li>
     <% end %>
   </ul>
-</div>

@@ -61,3 +61,44 @@
 
 
 }
+
+.question-main {
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 20px;
+}
+
+.question-vote {
+  -webkit-flex: none;
+  flex: none;
+  width: 50px;
+}
+
+.question-body {
+  padding-left: 20px;
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+.question-info {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.question-text {
+  font-size: 18px;
+}
+
+.edit-and-delete form {
+  display: inline;
+}
+
+.edit-and-delete form input {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font: inherit;
+  color: -webkit-link;
+  text-decoration: none;
+  cursor: pointer;
+}
