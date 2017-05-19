@@ -10,7 +10,7 @@
 }
 .answer-author {
   position: absolute;
-  bottom: 1em;
+  /*bottom: 1em;*/
   right: 1em;
   background-color: #F50057;
   border-radius: 4px;
