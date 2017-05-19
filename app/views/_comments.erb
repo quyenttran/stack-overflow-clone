@@ -3,3 +3,14 @@
  <li><%= comment.comment %></li>
 <% end %>
 
+<a href="/questions/<%= @question.id %>/comments/new" class="add-comment-to-question-link">Comment on this question</a>
+
+<div class="new-question-comment-form">
+<form id="new-comment-form" action='/questions/:id/comments/new' method='post'>
+  <label for="comment-comment">Comment:</label>
+  <input id="comment-comment" name="comment[comment]" placeholder="Your comment here"></input>
+  <input type="hidden" name="question_id" value="<%=@question.id%>">
+  <br>
+  <input class="btn-primary" type="submit" value="Post Your Comment to this Question" />
+</form>
+</div>
