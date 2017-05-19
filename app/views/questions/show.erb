@@ -1,0 +1,41 @@
+<div class="question-title">
+  <h1 class="question"><%= @question.title %></h1>
+</div>
+
+<div class="question-votes">
+  <form method="post" action="/questions/<%= @question.id %>/upvote" class="inline">
+    <button type="submit" name="submit-up" value = "submit-up-value" class="btn btn-default btn-xs upvote-button"><span class="glyphicon glyphicon-chevron-up"></span></button>
+  </form>
+  <p class="vote-count"> <%= show_votes_for(@question) %></p>
+  <form method="post" action="/questions/<%= @question.id %>/downvote" class="inline">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
+  </form>
+</div>
+<div class="question-info">
+  <p class="info-label">
+  asked <%= Question.time_format(@question.created_at) %></p>
+  <p class="info-label">
+  viewed <%= @question.view_count %> times</p>
+</div>
+
+<div class="question-body">
+  <p class="question-text"><%= @question.question %></p>
+  <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
+  <a href="/questions/<%= @question.id %>/edit">edit</a>
+  <form method="post" action="/questions/<%= @question.id%>">
+    <input name="_method" type="hidden" value="delete">
+    <input type="submit" value="delete">
+  </form>
+</div>
+<h2>question comments</h2>
+<%= show_comments_for(@question) %>
+
+<div class="question-author">
+  <p class="question-author-name">
+  </p>
+</div>
+
+
+
+<%= erb :'_answers' %>

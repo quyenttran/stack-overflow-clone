@@ -1,0 +1,19 @@
+<% @answers.each do |answer| %>
+  <span class="answer-container">
+    <h3>answer</h3>
+    <span class="answer-text">
+      <%= answer.answer %>
+    </span>
+    <br><br>
+    <span class="answer-comments">
+      <%= show_comments_for(answer) %>
+      </span>
+    <span class="answer-author">
+      user:<%= answer.user_id %>
+    </span>
+  </span>
+
+<% end %>
+
+
+<a href="/questions/<%=@question.id%>/answers/new" class="add-answer-link">Add an answer</a>

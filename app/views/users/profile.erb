@@ -1,0 +1,13 @@
+
+<h1 class="welcome">Welcome <%=@user.username%>!</h1>
+<div class="container">
+
+	<h2>here are all of your questions/answers!</h2>
+  <ul>
+	<% @user.questions.each do |question| %>
+  <li><a href='/questions/<%= question.id %>'><%= question.title %></a></li>
+  <% end %>
+  </ul>
+
+
+</div>

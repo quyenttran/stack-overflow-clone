@@ -1,0 +1,20 @@
+<nav>
+  <% if logged_in? %>
+    <ul class="nav-links">
+
+      <span class="jumbo" >DBC OVERFLOW</span>
+
+      <li class="nav-li"><a href="/users/<%= @user.id %>/profile"><%=@user.username%></a></li>
+      <li class="nav-li"><a href="/users/logout">Logout</a></li>
+      <li class="nav-li"><a href="/">Home</a></li>
+      <li class="nav-li"><a href="/questions/new">Ask a question</a></li>
+    </ul>
+  <% else %>
+    <ul class="nav-links">
+      <li class="nav-li"><a href="/">Home</a></li>
+      <li class="nav-li"><a href="/users/new">Create Account</a></li>
+      <li class="nav-li"><a href="/users/login">Log In</a></li>
+      <li class="nav-li"><a href="/users/login">Ask a question</a></li>
+    </ul>
+  <% end %>
+</nav>
