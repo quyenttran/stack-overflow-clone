@@ -16,20 +16,25 @@
   <div class="question-body">
     <p class="question-text"><%= @question.question %></p>
     <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-    <a href="/questions/<%= @question.id %>/edit">edit</a>
-    <form method="post" action="/questions/<%= @question.id%>">
-      <input name="_method" type="hidden" value="delete">
-      <input type="submit" value="delete">
-    </form>
+    <div class="edit-and-delete">
+      <a href="/questions/<%= @question.id %>/edit">edit</a>
+      <form method="post" action="/questions/<%= @question.id%>">
+        <input name="_method" type="hidden" value="delete">
+        <input type="submit" value="delete">
+      </form>
+    </div>
   </div>
+
   <div class="question-info">
     <p class="info-label">asked <%= Question.time_format(@question.created_at) %></p>
     <p class="info-label">viewed <%= @question.view_count %> times</p>
   </div>
 </div>
 
-<h2>question comments</h2>
-<%= show_comments_for(@question) %>
+<div class="question-comments">
+  <h2>question comments</h2>
+  <%= show_comments_for(@question) %>
+</div>
 
 
 

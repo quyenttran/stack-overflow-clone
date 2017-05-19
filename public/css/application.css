@@ -88,4 +88,16 @@
   font-size: 18px;
 }
 
+.edit-and-delete form {
+  display: inline;
+}
 
+.edit-and-delete form input {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font: inherit;
+  color: -webkit-link;
+  text-decoration: none;
+  cursor: pointer;
+}
