@@ -4,12 +4,14 @@
     <span class="answer-text">
       <%= answer.answer %>
     </span>
-
+    <br><br>
+    <span class="answer-comments">
+      <%= show_comments_for(answer) %>
+      </span>
     <span class="answer-author">
       user:<%= answer.user_id %>
     </span>
   </span>
-  <%= show_comments_for(answer) %>
 
 <% end %>
 

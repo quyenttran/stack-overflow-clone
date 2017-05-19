@@ -12,6 +12,12 @@
     <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
   </form>
 </div>
+<div class="question-info">
+  <p class="info-label">
+  asked <%= Question.time_format(@question.created_at) %></p>
+  <p class="info-label">
+  viewed <%= @question.view_count %> times</p>
+</div>
 
 <div class="question-body">
   <p class="question-text"><%= @question.question %></p>
@@ -30,11 +36,6 @@
   </p>
 </div>
 
-<div class="question-info">
-  <p class="info-label">
-  asked <%= Question.time_format(@question.created_at) %></p>
-  <p class="info-label">
-  viewed <%= @question.view_count %> times</p>
-</div>
+
 
 <%= erb :'_answers' %>
