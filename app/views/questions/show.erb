@@ -25,11 +25,6 @@
   </div>
 </div>
 
-<div class="question-comments">
-  <h2>question comments</h2>
-  <%= show_comments_for(@question) %>
-</div>
-
 <div class="question-info">
   <p class="info-label">
   asked <%= Question.time_format(@question.created_at) %></p>
@@ -37,6 +32,12 @@
   viewed <%= @question.view_count %> times</p>
 </div>
 
+<div class="question-comments">
+  <h2>question comments</h2>
+  <%= show_comments_for(@question) %>
+</div>
+
+<%= show_comment_form_for(@question) %>
 
 <div class="question-answers">
 <%= erb :'_answers' %>

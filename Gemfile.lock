@@ -19,6 +19,7 @@ GEM
     backports (3.8.0)
     bcrypt (3.1.11)
     builder (3.2.3)
+    byebug (9.0.6)
     capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
@@ -90,6 +91,7 @@ DEPENDENCIES
   activerecord (~> 4.2.0)
   activesupport (~> 4.2.0)
   bcrypt
+  byebug
   capybara
   factory_girl
   faker (~> 1.7, >= 1.7.3)
