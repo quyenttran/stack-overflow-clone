@@ -61,9 +61,10 @@
 
 }
 
-#question {
+.question-main {
   display: -webkit-flex;
   display: flex;
+  padding-top: 20px;
 }
 
 .question-vote {
@@ -72,16 +73,19 @@
   width: 50px;
 }
 
-.question-title {
+.question-body {
   padding-left: 20px;
   -webkit-flex: 2;
   flex: 2;
 }
 
 .question-info {
-  padding-top: 20px;
   -webkit-flex: 1;
   flex: 1;
+}
+
+.question-text {
+  font-size: 18px;
 }
 
 
