@@ -10,4 +10,8 @@ class Question < ActiveRecord::Base
     "#{datetime.strftime('%h')} #{datetime.strftime('%d')} '#{datetime.strftime('%y')} at #{datetime.strftime('%R')}"
   end
 
+  def vote_sum
+    self.votes.inject(0) { |total, vote| total + vote.value}
+  end
+
 end

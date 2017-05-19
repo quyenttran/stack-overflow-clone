@@ -62,7 +62,7 @@
 
 }
 
-.question-main {
+/*.question-main {
   display: -webkit-flex;
   display: flex;
   padding-top: 20px;
@@ -87,7 +87,7 @@
 
 .question-text {
   font-size: 18px;
-}
+}*/
 
 .edit-and-delete form {
   display: inline;

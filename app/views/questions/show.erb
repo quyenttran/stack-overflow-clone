@@ -1,6 +1,6 @@
-  <div class="question-title">
-    <h2 class="question"><%= @question.title %></h2>
-  </div>
+<div class="question-title">
+  <h2 class="question"><%= @question.title %></h2>
+</div>
 
 <div class="question-main">
  <div class="question-votes">
@@ -9,22 +9,26 @@
   </form>
   <p class="vote-count"> <%= show_votes_for(@question) %></p>
   <form method="post" action="/questions/<%= @question.id %>/downvote" class="inline downvote-form">
-    <input name="_method" type="hidden" value="delete">
     <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
   </form>
 </div>
-  <div class="question-body">
-    <p class="question-text"><%= @question.question %></p>
-    <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-    <div class="edit-and-delete">
-      <a href="/questions/<%= @question.id %>/edit">edit</a>
-      <form method="post" action="/questions/<%= @question.id%>">
-        <input name="_method" type="hidden" value="delete">
-        <input type="submit" value="delete">
-      </form>
-    </div>
-  </div>
 
+<div class="question-body">
+  <p class="question-text"><%= @question.question %></p>
+  <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
+  <div class="edit-and-delete">
+    <a href="/questions/<%= @question.id %>/edit">edit</a>
+    <form method="post" action="/questions/<%= @question.id%>">
+      <input name="_method" type="hidden" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  </div>
+</div>
+
+<div class="question-comments">
+  <h2>question comments</h2>
+  <%= show_comments_for(@question) %>
+</div>
 
 <div class="question-info">
   <p class="info-label">
@@ -32,15 +36,8 @@
   <p class="info-label">
   viewed <%= @question.view_count %> times</p>
 </div>
-<h2>question comments</h2>
-<%= show_comments_for(@question) %>
 
 
-<div class="question-comments">
-  <h2>question comments</h2>
-  <%= show_comments_for(@question) %>
-</div>
-
-
-
+<div class="question-answers">
 <%= erb :'_answers' %>
+</div>
