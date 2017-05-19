@@ -3,7 +3,7 @@ before do
     @user = User.find(session[:id])
   end
 end
-  
+
 get '/questions/new' do
   erb :'/questions/new'
 end
@@ -35,3 +35,14 @@ put '/questions/:id' do
   @question.update(params[:question])
   redirect "/questions/#{@question.id}"
 end
+
+delete '/questions/:id' do
+  @question = Question.find(params[:id])
+  if @user.id == @question.user_id
+    @question.destroy
+    redirect "/"
+  else
+    "Error. You do not have permission" #403 status?
+  end
+end
+
