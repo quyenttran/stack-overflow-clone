@@ -5,12 +5,16 @@
       <%= answer.answer %>
     </span>
     <br><br>
-    <span class="answer-comments">
-      <%= show_comments_for(answer) %>
-      </span>
     <span class="answer-author">
       user:<%= answer.user_id %>
     </span>
+    <br><br>
+    <span class="answer-comments">
+      <%= show_comment_form_for(answer) %>
+      </span>
+    <div>
+      <%= show_comments_for(answer) %>
+    </div>
   </span>
 
 <% end %>

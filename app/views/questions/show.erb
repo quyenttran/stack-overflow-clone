@@ -32,14 +32,13 @@
   <p class="info-label">
   viewed <%= @question.view_count %> times</p>
 </div>
-<h2>question comments</h2>
-<%= show_comments_for(@question) %>
-
 
 <div class="question-comments">
   <h2>question comments</h2>
   <%= show_comments_for(@question) %>
 </div>
+
+<%= show_comment_form_for(@question) %>
 
 
 

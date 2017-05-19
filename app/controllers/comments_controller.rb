@@ -4,19 +4,19 @@ before do
   end
 end
 
-post '/questions/:id/comments/new' do
-    puts "\n\n"
-  puts params
-  @comment = Comment.create!(params[:comment])
-  @question = Question.find(params[:question_id])
-  @question.comments << @comment
-  redirect "/questions/#{@question.id}"
+post '/questions/:id/comments' do
+  @comment = Comment.new(params[:comment])
+  @question = Question.find(params[:id])
+  if @question.comments << @comment
+    redirect "/questions/#{@question.id}"
+  end
 end
 
-# post '/comments' do  ####################
-#   puts "\n\n"
-#   puts params
-#   @comment = Comment.create!(params[:comment])
+post '/questions/:question_id/answers/:id/comments' do
+  @comment = Comment.new(params[:comment])
+  @answer = Answer.find(params[:id])
+  if @answer.comments << @comment
+    redirect "/questions/#{params[:question_id]}"
+  end
+end
 
-#   redirect "/questions/#{@comment.question_id}"
-# end
