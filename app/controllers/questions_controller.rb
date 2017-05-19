@@ -1,6 +1,7 @@
 before do
   if logged_in?
     @user = User.find(session[:id])
+    session[:upvote_question_ids] = []
   end
 end
 
