@@ -89,10 +89,42 @@ Answer.create!(answers)
 	User.create(username: Faker::LordOfTheRings.character, email: Faker::Internet.safe_email, password: "123")
 end
 
-question = {
-  title: "Twitter Bootstrap - add top space between rows",
-  question: "How to add margin top to class=\"row\" elements using twitter bootstrap framework?",
-  user_id: 1
-}
+questions = [
+  {
+    title: "Twitter Bootstrap - add top space between rows",
+    question: "How to add margin top to class=\"row\" elements using twitter bootstrap framework?",
+    user_id: 1
+  },
+  {
+    title: "How do I get to the mainframe?",
+    question: "I'm stuck in the matrix",
+    user_id: 1
+  }
+]
 
-Question.create(question)
+Question.create(questions)
+
+comments = [
+  {
+    comment: "Test, test, test, this is a test",
+    commentable_id: 1,
+    commentable_type: 'Question'
+  },
+  {
+    comment: "Hey, how do you re-record on these things?",
+    commentable_id: 1,
+    commentable_type: 'Answer'
+  },
+  {
+    comment: "I hate your question",
+    commentable_id: 2,
+    commentable_type: 'Question'
+  },
+  {
+    comment: "I love your answer",
+    commentable_id: 2,
+    commentable_type: 'Answer'
+  }
+]
+
+Comment.create!(comments)

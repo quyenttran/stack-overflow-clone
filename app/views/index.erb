@@ -1,13 +1,13 @@
 
-<h1>Welcome yall!!!</h1>
 <div>
   <% if !logged_in? %>
     <h2> DBC Overflow! </h2>
   <% end %>
 
   <ul class="container container-table">
+    <span class="glyphicon glyphicon-question-sign">Questions:</span>
     <% @questions.each do |question| %>
-      <li><a href="/questions/<%=question.id%>"><%= question.title.capitalize %></a> </li>
+      <li><a class="list-group-item"href="/questions/<%=question.id%>"><%= question.title.capitalize %></a> </li>
     <% end %>
   </ul>
 </div>

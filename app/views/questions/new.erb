@@ -1,9 +1,9 @@
 <form id="new-question-form" action='/questions' method='post'>
   <label for="question-title">Title:</label>
-  <textarea id="question-title" name="question[title]"></textarea>
+  <input id="question-title" name="question[title]"></input>
   <br>
   <label for="question-question">Question:</label>
-  <textarea id="question-question" name="question[question]"></textarea>
+  <textarea id="question-question" name="question[question]" rows="" cols="10"></textarea>
   <br>
-  <input class="post-question-button" type="submit" value="Post Your Question" />
+  <input class="btn-primary" type="submit" value="Post Your Question" />
 </form>

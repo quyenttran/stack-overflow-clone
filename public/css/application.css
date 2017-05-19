@@ -19,3 +19,44 @@
 .answer-text {
   float: left;
 }
+.nav-links {
+  font-size: 15px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  text-align: right;
+  width: 100%;
+  background: #F5F5F5;
+  border-top: 4px solid #FF5722;
+  /*color: #FFF;*/
+  padding: 20px;
+  display: inline;
+  letter-spacing: 3px;
+  /*word-spacing: 10px;*/
+ }
+
+ .nav-li {
+   display: inline-block;
+   padding: 10px;
+ }
+
+ body {
+   margin-top: 85px;
+ }
+
+ .list-group-item {
+   font-size: 20px;
+   border-color: #9E9E9E;
+ }
+
+ .jumbo {
+   color: black;
+   float: left;
+   font-weight: 300;
+   font-size: 25;
+ }
+
+.well-lg {
+
+
+}
