@@ -1,5 +1,61 @@
 require 'faker'
 
+# User.delete_all
+# Question.delete_all
+# Answer.delete_all
+# Comment.delete_all
+# Vote.delete_all
+
+# 50.times do
+#   User.create!(
+#     :username => Faker::LordOfTheRings.character,
+#     :email => Faker::Internet.email,
+#     :password => '123'
+#     )
+# end
+
+# questions = 20.times.map do
+#   Question.create!(
+#     :title => Faker::Hacker.say_something_smart,
+#     :question => Faker::Hacker.say_something_smart,
+#     :user_id => rand(1..50),
+#     )
+# end
+
+
+
+# answers = 20.times.map do
+#   Answer.create!(
+#     :answer => Faker::Hacker.say_something_smart,
+#     :user_id => rand(1..50),
+#     :question_id => rand(1..20)
+#     )
+# end
+
+# question_comments = 20.times.map do
+#   Comment.create!(
+#     :comment => Faker::Hacker.say_something_smart)
+# end
+
+# answer_comments = 20.times.map do
+#   Comment.create!(
+#     :comment => Faker::Hacker.say_something_smart)
+# end
+
+# question_comments.each do |comment|
+#   random_questions = questions.sample(rand(2..5))
+#   random_questions.each do |question|
+#     question.comments << comment
+#   end
+# end
+
+# answer_comments.each do |comment|
+#   random_answers = answers.sample(rand(2..5))
+#   random_answers.each do |answer|
+#     answer.comments << comment
+#   end
+# end
+
 answers = [
   {
     answer: "I don't know how I could have made it any clearer",
