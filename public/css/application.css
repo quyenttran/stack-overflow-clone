@@ -60,3 +60,28 @@
 
 
 }
+
+#question {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.question-vote {
+  -webkit-flex: none;
+  flex: none;
+  width: 50px;
+}
+
+.question-title {
+  padding-left: 20px;
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+.question-info {
+  padding-top: 20px;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+
