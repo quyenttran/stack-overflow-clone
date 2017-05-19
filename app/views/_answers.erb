@@ -1,17 +1,25 @@
 <% @answers.each do |answer| %>
-  <span class="answer-container">
-    <h3>answer</h3>
-    <span class="answer-text">
-      <%= answer.answer %>
-    </span>
-    <br><br>
-    <span class="answer-comments">
-      <%= show_comments_for(answer) %>
-      </span>
-    <span class="answer-author">
-      user:<%= answer.user_id %>
-    </span>
-  </span>
+  <div class="answer-container">
+    <!-- <span class="answer-container"> -->
+      <h3>answer</h3>
+      <div class="answer-text">
+<!--       <span class="answer-text"> -->
+        <%= answer.answer %>
+      </div>
+<!--       </span> -->
+<!--       <br><br> -->
+      <div class="answer-comments">
+<!--       <span class="answer-comments"> -->
+        <%= show_comments_for(answer) %>
+      </div>
+<!--         </span> -->
+      <div class="answer-author">
+<!--       <span class="answer-author"> -->
+        user:<%= answer.user_id %>
+      </div>
+<!--       </span> -->
+<!--     </span> -->
+  </div>
 
 <% end %>
 

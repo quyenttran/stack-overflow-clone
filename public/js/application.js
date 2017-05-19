@@ -18,9 +18,8 @@ $(document).ready(function() {
       e.preventDefault();
       var formUrl = $(this).attr('action');
       var $rootDiv = $(this).closest('div');
-
       $.ajax({
-        method: "delete",
+        method: "post",
         url: formUrl,
         dataType: "json"
       })
