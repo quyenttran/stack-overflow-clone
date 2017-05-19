@@ -11,6 +11,7 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @question.view_count += 1
+  @question.save!
   @answers = Answer.where(question_id: @question.id)
   erb :'/questions/show'
 end

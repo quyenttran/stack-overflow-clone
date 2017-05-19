@@ -10,3 +10,4 @@ delete '/questions/:id/downvote' do
   @question.votes.delete(last_vote)
   redirect "/questions/#{@question.id}"
 end
+
