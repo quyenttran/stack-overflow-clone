@@ -3,6 +3,8 @@
 </div>
 
 <div class="question-main">
+ <% if @user %>
+
  <div class="question-votes">
   <form method="post" action="/questions/<%= @question.id %>/upvote" class="inline upvote-form">
     <button type="submit" name="submit-up" value = "submit-up-value" class="btn btn-default btn-xs upvote-button"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -12,7 +14,9 @@
     <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
   </form>
 </div>
+<% else %>
 
+<% end %>
 <div class="question-body">
   <p class="question-text"><%= @question.question %></p>
   <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
