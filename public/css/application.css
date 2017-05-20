@@ -1,4 +1,4 @@
-.answer-container {
+/*.answer-container {
   display: inline-block;
   width: 500px;
   min-height: 70px;
@@ -10,7 +10,7 @@
 }
 .answer-author {
   position: absolute;
-  /*bottom: 1em;*/
+  bottom: 1em;
   right: 1em;
   background-color: #F50057;
   border-radius: 4px;
@@ -18,7 +18,7 @@
 }
 .answer-text {
   float: left;
-}
+}*/
 .nav-links {
   font-size: 15px;
   position: fixed;
@@ -107,15 +107,7 @@
   text-align: center;
 }
 
-.answer-container {
-  position: relative;
-}
-
-.answer-author {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
+.div-answer-comments li {
+  list-style: none;
 }
 
