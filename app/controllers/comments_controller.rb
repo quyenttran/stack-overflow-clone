@@ -22,7 +22,8 @@ post '/questions/:question_id/answers/:id/comments' do
   @answer = Answer.find(params[:id])
   if request.xhr?
     if @answer.comments << @comment
-      "<li>#{@comment.comment}</li>"
+      content_type :json
+      {answer_id: @answer.id, comment: @comment.comment}.to_json
     end
   else
     puts "Error!"

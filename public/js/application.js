@@ -36,22 +36,41 @@ $(document).ready(function() {
       $(this).siblings().first().removeClass("hidden")
   })
 
-  $("div.comment-on-commentable").on("submit", "form", function(event){
+  $(".question-comments").on("submit", "form", function(event){
     event.preventDefault();
-    console.log(this);
     var formUrl = $(this).attr('action');
     var formData = $(this).serialize();
     var myForm = $(this);
     $.ajax({
-      method: "post",
+      method: "POST",
       url: formUrl,
       data: formData
     })
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
-      var CommentList = $(myForm).closest(".comment-on-commentable").siblings(".comments").find("ul");
+      var CommentList = $(myForm).closest(".question-comments").find("ul")
       CommentList.append(response);
+    })
+  })
+
+  $(".answer-container").on("submit", "form", function(event){
+    event.preventDefault();
+    var formUrl = $(this).attr('action');
+    var formData = $(this).serialize();
+    var myForm = $(this);
+    $.ajax({
+      method: "POST",
+      url: formUrl,
+      data: formData,
+      dataType: "json"
+    })
+    .done(function(response){
+      console.log("ok, so here we are ajaxing it up!");
+      $(myForm).addClass("hidden");
+      console.log(response.comment);
+      var CommentList = $(myForm).closest(".answer-id-" + response.answer_id).find("ul");
+      CommentList.append(response.comment);
     })
   })
 
