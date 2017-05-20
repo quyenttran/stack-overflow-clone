@@ -20,13 +20,15 @@
     <div class="question-body">
       <p class="question-text"><%= @question.question %></p>
       <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-      <div class="edit-and-delete">
-        <a href="/questions/<%= @question.id %>/edit">edit</a>
-        <form method="post" action="/questions/<%= @question.id%>">
-          <input name="_method" type="hidden" value="delete">
-          <input type="submit" value="delete">
-        </form>
-      </div>
+      <% if @user %>
+        <div class="edit-and-delete">
+          <a href="/questions/<%= @question.id %>/edit">edit</a>
+          <form method="post" action="/questions/<%= @question.id%>">
+            <input name="_method" type="hidden" value="delete">
+            <input type="submit" value="delete">
+          </form>
+        </div>
+      <% end %>
     </div>
     <div class="question-info">
       <p class="info-label">
