@@ -57,12 +57,7 @@
    font-size: 25;
  }
 
-.well-lg {
-
-
-}
-
-/*.question-main {
+.question-main {
   display: -webkit-flex;
   display: flex;
   padding-top: 20px;
@@ -83,11 +78,12 @@
 .question-info {
   -webkit-flex: 1;
   flex: 1;
+  text-align: right;
 }
 
 .question-text {
   font-size: 18px;
-}*/
+}
 
 .edit-and-delete form {
   display: inline;
@@ -102,3 +98,24 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.question-comments li, .show-comments li {
+   list-style: none;
+}
+
+.vote-count {
+  text-align: center;
+}
+
+.answer-container {
+  position: relative;
+}
+
+.answer-author {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
