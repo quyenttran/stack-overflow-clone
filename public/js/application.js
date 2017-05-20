@@ -38,7 +38,6 @@ $(document).ready(function() {
 
   $("div.comment-on-commentable").on("submit", "form", function(event){
     event.preventDefault();
-    console.log(this);
     var formUrl = $(this).attr('action');
     var formData = $(this).serialize();
     var myForm = $(this);
@@ -50,7 +49,7 @@ $(document).ready(function() {
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
-      var CommentList = $(myForm).closest(".comment-on-commentable").siblings(".comments").find("ul");
+      var CommentList = $(myForm).closest(".question-comments").find("ul")
       CommentList.append(response);
     })
   })
