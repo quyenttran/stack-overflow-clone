@@ -1,6 +1,6 @@
 <% if @answers %>
-  <div class="answer-container">
-    <% @answers.each do |answer| %>
+  <% @answers.each do |answer| %>
+    <div class="answer-container answer-id-<%=answer.id%>">
       <div class="answer-text">
         <%= answer.answer %>
         <p style="text-align: right">answered by <%= answer.user.username %></p>
@@ -12,8 +12,8 @@
         <%= show_comment_form_for(answer) %>
       </div>
       <hr>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 <% end %>
 
 

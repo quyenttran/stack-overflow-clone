@@ -36,11 +36,12 @@ $(document).ready(function() {
       $(this).siblings().first().removeClass("hidden")
   })
 
-  $("div.comment-on-commentable").on("submit", "form", function(event){
+  $(".question-comments").on("submit", "form", function(event){
     event.preventDefault();
     var formUrl = $(this).attr('action');
     var formData = $(this).serialize();
     var myForm = $(this);
+    console.log(myForm);
     $.ajax({
       method: "post",
       url: formUrl,
@@ -57,18 +58,20 @@ $(document).ready(function() {
   $(".answer-container").on("submit", "form", function(event){
     event.preventDefault();
     var formUrl = $(this).attr('action');
-    var formData = $(this).serialize();
+    // var formData = $(this).serialize();
     var myForm = $(this);
     $.ajax({
       method: "post",
       url: formUrl,
-      data: formData
+      // data: formData
+      dataType: "json"
     })
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
-      var CommentList = $(myForm).closest(".answer-container").find("ul");
+      var CommentList = $(myForm).closest(".answer-id-" + response.answer_id).find("ul");
       CommentList.append(response);
+      $(myForm).reset();
     })
   })
 
