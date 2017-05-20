@@ -54,4 +54,22 @@ $(document).ready(function() {
     })
   })
 
+  $(".answer-container").on("submit", "form", function(event){
+    event.preventDefault();
+    var formUrl = $(this).attr('action');
+    var formData = $(this).serialize();
+    var myForm = $(this);
+    $.ajax({
+      method: "post",
+      url: formUrl,
+      data: formData
+    })
+    .done(function(response){
+      console.log("ok, so here we are ajaxing it up!");
+      $(myForm).addClass("hidden");
+      var CommentList = $(myForm).closest(".answer-container").find("ul");
+      CommentList.append(response);
+    })
+  })
+
 });
