@@ -23,7 +23,7 @@ post '/questions/:question_id/answers/:id/comments' do
   if request.xhr?
     if @answer.comments << @comment
       content_type :json
-      {answer_id: @answer.id, comment: params[:comment]}.to_json
+      {answer_id: @answer.id, comment: @comment.comment}.to_json
     end
   else
     puts "Error!"

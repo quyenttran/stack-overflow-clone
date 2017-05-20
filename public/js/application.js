@@ -41,9 +41,8 @@ $(document).ready(function() {
     var formUrl = $(this).attr('action');
     var formData = $(this).serialize();
     var myForm = $(this);
-    console.log(myForm);
     $.ajax({
-      method: "post",
+      method: "POST",
       url: formUrl,
       data: formData
     })
@@ -58,20 +57,20 @@ $(document).ready(function() {
   $(".answer-container").on("submit", "form", function(event){
     event.preventDefault();
     var formUrl = $(this).attr('action');
-    // var formData = $(this).serialize();
+    var formData = $(this).serialize();
     var myForm = $(this);
     $.ajax({
-      method: "post",
+      method: "POST",
       url: formUrl,
-      // data: formData
+      data: formData,
       dataType: "json"
     })
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
+      console.log(response.comment);
       var CommentList = $(myForm).closest(".answer-id-" + response.answer_id).find("ul");
-      CommentList.append(response);
-      $(myForm).reset();
+      CommentList.append(response.comment);
     })
   })
 
