@@ -1,18 +1,21 @@
+
 <div class="container container-table">
   <div class="question-title">
     <h2 class="question"><%= @question.title %></h2>
   </div>
 
-  <div class="question-main">
-    <div class="question-votes">
+<div class="question-main">
+ <% if @user %>
+   <div class="question-votes">
       <form method="post" action="/questions/<%= @question.id %>/upvote" class="inline upvote-form">
         <button type="submit" name="submit-up" value = "submit-up-value" class="btn btn-default btn-xs upvote-button"><span class="glyphicon glyphicon-chevron-up"></span></button>
       </form>
-      <p class="vote-count"><%= show_votes_for(@question) %></p>
+      <p class="vote-count"> <%= show_votes_for(@question) %></p>
       <form method="post" action="/questions/<%= @question.id %>/downvote" class="inline downvote-form">
-      <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
+        <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
       </form>
     </div>
+  <% end %>
 
     <div class="question-body">
       <p class="question-text"><%= @question.question %></p>
@@ -33,11 +36,9 @@
     </div>
   </div>
   <hr>
-  <div class="question-comments">
+  <div class="question-comments comments">
     <%= show_comments_for(@question) %>
   </div>
-
-  <%= show_comment_form_for(@question) %>
 
   <div class="main-answer-container">
     <h3><%= @question.answers.count %> Answers</h3>

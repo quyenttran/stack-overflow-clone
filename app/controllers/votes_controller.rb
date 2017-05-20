@@ -6,19 +6,23 @@ end
 
 post '/questions/:id/upvote' do
   @question = Question.find(params[:id])
-  vote = Vote.new({value: 1, voter_id: @user.id, votable_id: @question.id, votable_type: @question.class.to_s})
-  if @user && vote.save
-    @vote_sum = @question.vote_sum
-    if request.xhr?
-      status 200
-      content_type :json
-      { question_id: @question.id, votecount: @vote_sum }.to_json
-    else
-      redirect "/questions/#{@question.id}"
+  if @user
+    vote = Vote.new({value: 1, voter_id: @user.id, votable_id:question.id, votable_type: @question.class.to_s})
+    if @user && vote.save
+      @vote_sum = @question.vote_sum
+      if request.xhr?
+        status 200
+        content_type :json
+        { question_id: @question.id, votecount: @vote_sum }.to_json
+      else
+        redirect "/questions/#{@question.id}"
+      end
     end
   else
-    #render error to user to log in or something
-    redirect "/"
+    # puts "??????????????????"
+    # status 303
+    # @errors = ["You need to be logged in and can only vote once for each question!"]
+    # erb :"questions/show"
   end
 end
 
@@ -37,3 +41,7 @@ post '/questions/:id/downvote' do
   end
 end
 
+# get '/raise422' do
+#     status 422
+#     body 'You need to be logged in and can only vote once for each question!'
+# end

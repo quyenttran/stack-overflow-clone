@@ -1,3 +1,4 @@
+<% if @answers %>
 <% @answers.each do |answer| %>
   <span class="answer-container">
     <h3>answer</h3>
@@ -9,13 +10,14 @@
       username:  <%= answer.user.username %>
     </span>
     <br><br>
-    <span class="answer-comments">
+    <span class="answer-comments answer-comment-form">
       <%= show_comment_form_for(answer) %>
       </span>
-    <div>
+    <div class = "div-answer-comments comments">
       <%= show_comments_for(answer) %>
     </div>
   </span>
+<% end %>
 <% end %>
 
 
