@@ -1,3 +1,4 @@
+<% if @answers %>
 <% @answers.each do |answer| %>
   <span class="answer-container">
     <h3>answer</h3>
@@ -16,6 +17,7 @@
       <%= show_comments_for(answer) %>
     </div>
   </span>
+<% end %>
 <% end %>
 
 

@@ -11,6 +11,7 @@ $(document).ready(function() {
       })
       .done(function(postData){
         $rootDiv.find(".vote-count").text(postData.votecount);
+        $rootDiv.find(".glyphicon-chevron-up").css("color", "red");
       })
   })
 
@@ -25,6 +26,7 @@ $(document).ready(function() {
       })
       .done(function(postData){
         $rootDiv.find(".vote-count").text(postData.votecount);
+        $rootDiv.find(".glyphicon-chevron-down").css("color", "red");
       })
   })
 
