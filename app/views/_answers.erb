@@ -8,13 +8,16 @@
       <div class = "div-answer-comments comments">
         <%= show_comments_for(answer) %>
       </div>
+      <% if @user %>
       <div class="answer-comments answer-comment-form">
         <%= show_comment_form_for(answer) %>
       </div>
+      <% end %>
       <hr>
     </div>
   <% end %>
 <% end %>
 
-
+<% if @user %>
 <a href="/questions/<%=@question.id%>/answers/new" class="add-answer-link">Add an answer</a>
+<% end %>

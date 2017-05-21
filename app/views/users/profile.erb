@@ -1,6 +1,6 @@
 <div class="user-questions">
   <h1 class="welcome">Welcome <%=@user.username%>!</h1>
-	<h2>You have <%= @user.questions.count %> questions</h2>
+	<h2>You have <%= @user.questions.count %> question/s</h2>
   <ul class="container container-table">
   <span class="glyphicon glyphicon-question-sign">Questions:</span>
 	 <% @user.questions.each do |question| %>
