@@ -5,4 +5,8 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
+
+  def vote_sum
+    self.votes.inject(0) { |total, vote| total + vote.value}
+  end
 end

@@ -26,6 +26,10 @@ post '/questions/:id/upvote' do
   end
 end
 
+post '/answers/:id/upvote' do
+
+end
+
 post '/questions/:id/downvote' do
   @question = Question.find(params[:id])
   vote = Vote.new({value: (-1), voter_id: @user.id, votable_id: @question.id, votable_type: @question.class.to_s})
@@ -39,6 +43,10 @@ post '/questions/:id/downvote' do
     redirect "/questions/#{@question.id}"
     end
   end
+end
+
+post '/answers/:id/downvote' do
+
 end
 
 # get '/raise422' do
