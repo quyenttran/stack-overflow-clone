@@ -7,7 +7,7 @@ end
 post '/questions/:id/upvote' do
   @question = Question.find(params[:id])
   if @user
-    vote = Vote.new({value: 1, voter_id: @user.id, votable_id:question.id, votable_type: @question.class.to_s})
+    vote = Vote.new({value: 1, voter_id: @user.id, votable_id: @question.id, votable_type: @question.class.to_s})
     if @user && vote.save
       @vote_sum = @question.vote_sum
       if request.xhr?
