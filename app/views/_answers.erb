@@ -8,7 +8,7 @@
               <button type="submit" name="submit-up" value = "submit-up-value" class="btn btn-default btn-xs upvote-button"><span class="glyphicon glyphicon-chevron-up"></span></button>
             </form>
             <p id="vote-count-<%= answer.id %>"> <%= show_votes_for(answer) %></p>
-            <form method="post" action="/answers/<%= @question.id %>/downvote" class="inline downvote-form">
+            <form method="post" action="/answers/<%= answer.id %>/downvote" class="inline downvote-form">
               <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
             </form>
           </div>

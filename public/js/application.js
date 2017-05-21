@@ -13,12 +13,12 @@ $(document).ready(function() {
     })
     .done(function(response){
       $("#vote-count-" + response.answer_id).text(response.votecount);
+      $("#answer-id-" + response.answer_id).find(".glyphicon-chevron-up").css("color", "red");
       return;
     })
   })
 
-
-  $(".question-main").on("submit", "form", function(e){
+    $(".question-main").on("submit", "form", function(e){
       e.preventDefault();
       var formUrl = $(this).attr('action');
       var $rootDiv = $(this).closest('.question-votes');
@@ -33,6 +33,23 @@ $(document).ready(function() {
         $rootDiv.find(".glyphicon-chevron-up").css("color", "red");
       })
   })
+
+  //   $(".answer-main").on("submit", "form", function(event){
+  //   event.preventDefault();
+  //   var formUrl = $(this).attr('action');
+
+  //   $.ajax({
+  //     method: "POST",
+  //     url: formUrl,
+  //     dataType: "json"
+  //   })
+  //   .done(function(response){
+  //     $("#vote-count-" + response.answer_id).text(response.votecount);
+  //     $("#vote-count-" + response.answer_id).find(".glyphicon-chevron-down").css("color", "red");
+  //     return;
+  //   })
+  // })
+
 
   $(".downvote-form").on("submit", function(e){
       e.preventDefault();
