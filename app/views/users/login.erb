@@ -2,9 +2,13 @@
 
 <h2> Log In: </h2>
 <form action='/users/login' method='post'>
-  <label>Email: </label>
-  <input type="email" name="user[email]"></br>
-  <label>Password: </label>
-  <input type="password" name="user[password]"></br> </br>
+<div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input type="email" name="user[email]" class="form-control" placeholder="Email">
+  </div>
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+  <input type="password" name="user[password]" class="form-control" placeholder="Password">
+  </div>
   <button type="submit" class="btn btn-default">Log In!</button>
 </form>
