@@ -1,8 +1,27 @@
 $(document).ready(function() {
-  $(".upvote-form").on("submit", function(e){
+
+    // voting for answers
+
+  $(".answer-main").on("submit", "form", function(event){
+    event.preventDefault();
+    var formUrl = $(this).attr('action');
+
+    $.ajax({
+      method: "POST",
+      url: formUrl,
+      dataType: "json"
+    })
+    .done(function(response){
+      $("#vote-count-" + response.answer_id).text(response.votecount);
+      return;
+    })
+  })
+
+
+  $(".question-main").on("submit", "form", function(e){
       e.preventDefault();
       var formUrl = $(this).attr('action');
-      var $rootDiv = $(this).closest('div');
+      var $rootDiv = $(this).closest('.question-votes');
 
       $.ajax({
         method: "post",
@@ -47,14 +66,14 @@ $(document).ready(function() {
       data: formData
     })
     .done(function(response){
-      console.log("ok, so here we are ajaxing it up!");
+      console.log("ok, so here we are ajaxing it up?!");
       $(myForm).addClass("hidden");
       var CommentList = $(myForm).closest(".question-comments").find("ul")
       CommentList.append(response);
     })
   })
 
-  $(".answer-container").on("submit", "form", function(event){
+  $(".comment-on-commentable").on("submit", "form", function(event){
     event.preventDefault();
     var formUrl = $(this).attr('action');
     var formData = $(this).serialize();
@@ -68,8 +87,7 @@ $(document).ready(function() {
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
-      console.log(response.comment);
-      var CommentList = $(myForm).closest(".answer-id-" + response.answer_id).find("ul");
+      var CommentList = $(myForm).closest("#answer-id-" + response.answer_id).find("ul");
       CommentList.append("<li>" + response.comment + "</li>");
     })
   })

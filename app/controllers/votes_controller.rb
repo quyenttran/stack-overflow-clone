@@ -27,7 +27,20 @@ post '/questions/:id/upvote' do
 end
 
 post '/answers/:id/upvote' do
-
+  @answer = Answer.find(params[:id])
+  if @user
+    vote = Vote.new( {value: 1, voter_id: @user.id, votable_id: @answer.id, votable_type: @answer.class.to_s})
+    if @user && vote.save
+      @vote_sum = @answer.vote_sum
+      if request.xhr?
+        status 200
+        content_type :json
+        { answer_id: @answer.id, votecount: @vote_sum}.to_json
+      else
+        redirect "/questions/#{@answer.question.id}"
+      end
+    end
+  end
 end
 
 post '/questions/:id/downvote' do
