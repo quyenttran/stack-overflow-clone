@@ -1,20 +1,40 @@
 <% if @answers %>
   <% @answers.each do |answer| %>
-    <div class="answer-container answer-id-<%=answer.id%>">
-      <div class="answer-text">
-        <%= answer.answer %>
-        <p style="text-align: right">answered by <%= answer.user.username %></p>
+    <div class="answer-container" id="answer-id-<%=answer.id%>">
+      <% if @user %>
+      <div class ="answer-main">
+<!--          <div class="answer-votes">
+            <form method="post" action="/answers/<%= answer.id %>/upvote" class="inline upvote-form">
+              <button type="submit" name="submit-up" value = "submit-up-value" class="btn btn-default btn-xs upvote-button"><span class="glyphicon glyphicon-chevron-up"></span></button>
+            </form>
+            <p id="vote-count-<%= answer.id %>"> <%= show_votes_for(answer) %></p>
+            <form method="post" action="/answers/<%= answer.id %>/downvote" class="inline downvote-form">
+              <button type="submit" name="submit-down" value = "submit-down-value" class="btn btn-default btn-xs downvote-button"><span class="glyphicon glyphicon-chevron-down"></span></button>
+            </form>
+          </div> -->
+          <% end %>
+        <div class="answer-text">
+          <%= answer.answer %>
+          <p style="text-align: right">answered by <%= answer.user.username %></p>
+        </div>
       </div>
+      <hr>
       <div class = "div-answer-comments comments">
         <%= show_comments_for(answer) %>
       </div>
+      <% if @user %>
       <div class="answer-comments answer-comment-form">
         <%= show_comment_form_for(answer) %>
       </div>
+      <% end %>
       <hr>
     </div>
   <% end %>
 <% end %>
 
-
-<a href="/questions/<%=@question.id%>/answers/new" class="add-answer-link">Add an answer</a>
+<div class="add-answer">
+  <% if @user %>
+  <a href="/questions/<%=@question.id%>/answers/new" class="add-answer-link">Add an answer</a>
+  <%= erb :'_new_answer', layout: false %>
+  <% end %>
+</div>

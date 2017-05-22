@@ -20,7 +20,7 @@
     <div class="question-body">
       <p class="question-text"><%= @question.question %></p>
       <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-      <% if @user %>
+      <% if @question.user == @user %>
         <div class="edit-and-delete">
           <a href="/questions/<%= @question.id %>/edit">edit</a>
           <form method="post" action="/questions/<%= @question.id%>">
@@ -33,6 +33,7 @@
     <div class="question-info">
       <p class="info-label">
       asked <%= Question.time_format(@question.created_at) %> </p>
+      <p class="info-label">by <%= @question.user.username %></p>
       <p class="info-label">
       viewed <%= @question.view_count %> times</p>
     </div>
@@ -40,7 +41,9 @@
   <hr>
   <div class="question-comments comments">
     <%= show_comments_for(@question) %>
-    <%= show_comment_form_for(@question) %>
+    <% if @user %>
+      <%= show_comment_form_for(@question) %>
+    <% end %>
   </div>
 
   <div class="main-answer-container">

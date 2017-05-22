@@ -1,13 +1,20 @@
-
-<h1 class="welcome">Welcome <%=@user.username%>!</h1>
-<div class="container">
-
-	<h2>here are all of your questions/answers!</h2>
-  <ul>
-	<% @user.questions.each do |question| %>
-  <li><a href='/questions/<%= question.id %>'><%= question.title %></a></li>
-  <% end %>
+<div class="user-questions">
+  <h1 class="welcome">Welcome <%=@user.username%>!</h1>
+	<h2>You have <%= @user.questions.count %> question/s</h2>
+  <ul class="container container-table">
+  <span class="glyphicon glyphicon-question-sign">Questions:</span>
+	 <% @user.questions.each do |question| %>
+    <li style="list-style: none;">
+      <a class="list-group-item" href='/questions/<%= question.id %>'><%= question.title %>
+      <span class="badge">
+        <span class="glyphicon glyphicon-eye-open">&nbsp;</span><%= question.view_count %>
+        </span>
+        <span class="badge">
+            <span class="glyphicon glyphicon-arrow-up">&nbsp;</span><%= question.votes.count %>
+        </span>
+      </a>
+    </li>
+    <% end %>
   </ul>
-
-
 </div>
+
