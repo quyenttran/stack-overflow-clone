@@ -11,11 +11,13 @@ get '/questions/:id/answers/new' do
 end
 
 post '/answers' do
-  puts "\n\n"
-  puts params
   @answer = Answer.create!(params[:answer])
-
-  redirect "/questions/#{@answer.question_id}"
+  if request.xhr?
+    content_type :json
+    {question_id: @answer.question_id, answer: @answer.answer}.to_json
+  else
+    redirect "/questions/#{@answer.question_id}"
+  end
 end
 
 post '/questions/:id/answers/:id/comments/new' do

@@ -69,11 +69,34 @@ $(".upvote-form").on("submit", function(e){
     .done(function(response){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
-      console.log(response.comment);
       var CommentList = $(myForm).closest("#answer-id-" + response.answer_id).find("ul");
       CommentList.append("<li>" + response.comment + "</li>");
     })
   })
+
+  $("#new-answer-form").hide();
+  $(".add-answer").on("click", "a", function(event){
+    event.preventDefault();
+    $("#new-answer-form").show();
+  })
+
+  //ajaxing for add answers
+
+  // $("#new-answer-form").submit(function(event) {
+  //   event.preventDefault();
+  //   var formUrl = $(this).attr('action');
+  //   var formData = $(this).serialize();
+  //   $.ajax({
+  //     method: "POST",
+  //     url: formUrl,
+  //     data: formData,
+  //     dataType: "json"
+  //   })
+  //   .done(function(response) {
+  //     $("#new-answer-form").hide();
+  //     console.log(response);
+  //   })
+  // })
 
     // voting for answers
 
