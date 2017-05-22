@@ -20,7 +20,7 @@
     <div class="question-body">
       <p class="question-text"><%= @question.question %></p>
       <p class="question-timestamps">edited <%= Question.time_format(@question.updated_at) %></p>
-      <% if @user %>
+      <% if @question.user == @user %>
         <div class="edit-and-delete">
           <a href="/questions/<%= @question.id %>/edit">edit</a>
           <form method="post" action="/questions/<%= @question.id%>">

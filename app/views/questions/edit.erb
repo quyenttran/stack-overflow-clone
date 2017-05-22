@@ -1,11 +1,11 @@
 <form id="edit-question-form" action="/questions/<%= @question.id %>" method="post">
   <input name='_method' type='hidden' value='put' />
   <label for="question-title">Title:</label>
-  <textarea id="question-title" name="question[title]"><%= @question.title %></textarea>
+  <textarea id="question-title" class="form-control" name="question[title]"><%= @question.title %></textarea>
   <br>
   <label for="question-question">Question:</label>
-  <textarea id="question-question" name="question[question]"><%= @question.question %></textarea>
+  <textarea class="form-control" id="comment" name="question[question]" rows="8"><%= @question.question %></textarea>
   <br>
-  <input class="post-question-button" type="submit" value="Save Edits" />
+  <input class="post-question-button btn-primary" type="submit" value="Save Edits" />
   <a class="cancel" href="/questions/<%= @question.id %>">cancel</a>
 </form>
