@@ -70,8 +70,8 @@ $(".upvote-form").on("submit", function(e){
       console.log("ok, so here we are ajaxing it up!");
       $(myForm).addClass("hidden");
       console.log(response.comment);
-      var CommentList = $(myForm).closest(".answer-id-" + response.answer_id).find("ul");
-      CommentList.append(response.comment);
+      var CommentList = $(myForm).closest("#answer-id-" + response.answer_id).find("ul");
+      CommentList.append("<li>" + response.comment + "</li>");
     })
   })
 
